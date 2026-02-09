@@ -5,3 +5,6 @@
 /buildSrc/.gradle/
 /buildSrc/build/
 /buildSrc/build/classes/groovy/main/
+/run/
+/src/generated/resources/.cache/
+/.idea/
