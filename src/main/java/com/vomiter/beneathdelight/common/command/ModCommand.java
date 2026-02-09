@@ -4,6 +4,7 @@ import com.mojang.brigadier.CommandDispatcher;
 import net.minecraft.commands.CommandSourceStack;
 
 public class ModCommand {
+
     public static void register(CommandDispatcher<CommandSourceStack> dispatcher) {
         /*
         dispatcher.register(
