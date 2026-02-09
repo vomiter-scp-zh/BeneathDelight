@@ -1,0 +1,26 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "com.vomiter.beneathdelight.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "mixins": [
+    "food.block.BreadLoafBlock_BlockEntityMixin",
+    "food.block.BreadLoafBlock_SliceMixin",
+    "food.block.MagmaCakeBlock_BlockEntityMixin",
+    "food.block.MagmaCakeBlock_SliceMixin",
+    "food.block.StriderLoafBlockMixin",
+    "food.block.StuffedHoglinBlock_BlockEntityMixin",
+    "food.block.StuffedHoglinBlock_BowlAcceptMixin",
+    "food.block.StuffedHoglinBlock_BreakRedirectMixin",
+    "stove.NetherStoveBlock_FuelAndHeat",
+    "stove.NetherStoveBlockEntity_Accessor",
+    "stove.NetherStoveBlockEntity_AccessorImp",
+    "stove.NetherStoveBlockEntity_FuelAndHeat"
+  ],
+  "client": [
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "refmap": "beneathdelight.mixins.refmap.json"
+}
