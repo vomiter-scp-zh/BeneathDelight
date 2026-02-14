@@ -39,6 +39,7 @@ public class BeneathDelight
     *  [X] COLD STRIDER LOAF
      */
 
+    //TODO: hell forge heat source for resurgent soil farmland
     //TODO: make soul rich soil support mushroom
     //TODO: brick cabinet
     //TODO: make hoglins drop loin

@@ -20,7 +20,7 @@ import org.spongepowered.asm.mixin.injection.At;
 
 @Mixin(value = StriderloafBlock.class, remap = false)
 public class StriderLoafBlockMixin {
-    @WrapOperation(method = "tick", at = @At(value = "INVOKE", target = "Lcom/soytutta/mynethersdelight/common/block/StriderloafBlock;updateBlockState(Lnet/minecraft/server/level/ServerLevel;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/sounds/SoundEvent;)V"))
+    @WrapOperation(method = "tick", at = @At(value = "INVOKE", target = "Lcom/soytutta/mynethersdelight/common/block/StriderloafBlock;updateBlockState(Lnet/minecraft/server/level/ServerLevel;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/sounds/SoundEvent;)V"), remap = true)
     private void setStack(StriderloafBlock instance, ServerLevel worldIn, BlockPos pos, BlockState newState, SoundEvent sound, Operation<Void> original){
         if(!(worldIn.getBlockEntity(pos) instanceof DecayingFeastBlockEntity decay)) {
             original.call(instance, worldIn, pos, newState, sound);
@@ -46,7 +46,7 @@ public class StriderLoafBlockMixin {
         );
     }
 
-    @WrapOperation(method = "hasLava", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/level/block/state/BlockState;is(Lnet/minecraft/tags/TagKey;)Z"))
+    @WrapOperation(method = "hasLava", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/level/block/state/BlockState;is(Lnet/minecraft/tags/TagKey;)Z", remap = true))
     private static boolean readHeatSource(
             BlockState instance, TagKey tagKey, Operation<Boolean> original,
             @Local(argsOnly = true, name = "arg0") LevelReader level, @Local(argsOnly = true, name = "arg1") BlockPos pos

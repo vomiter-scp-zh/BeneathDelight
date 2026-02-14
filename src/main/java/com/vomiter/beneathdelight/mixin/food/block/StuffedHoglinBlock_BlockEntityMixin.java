@@ -25,7 +25,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-@Mixin(value = StuffedHoglinBlock.class, remap = false)
+@Mixin(value = StuffedHoglinBlock.class)
 public abstract class StuffedHoglinBlock_BlockEntityMixin extends Block implements EntityBlock, ISDDecayingBlock {
 
     protected StuffedHoglinBlock_BlockEntityMixin(Properties props) { super(props); }

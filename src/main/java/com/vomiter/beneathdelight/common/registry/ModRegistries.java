@@ -21,6 +21,7 @@ public class ModRegistries {
     public static void register(IEventBus modBus){
         add(ModItems.ITEMS);
         add(ModBlocks.BLOCKS);
+        add(ModBlocks.BLOCK_ITEMS);
         add(ModBlockEntityTypes.BLOCK_ENTITIES);
         for (DeferredRegister<?> registry : REGISTRIES) {
             registry.register(modBus);

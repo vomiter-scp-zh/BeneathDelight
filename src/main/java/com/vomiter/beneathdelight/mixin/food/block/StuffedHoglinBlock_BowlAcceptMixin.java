@@ -26,7 +26,8 @@ public abstract class StuffedHoglinBlock_BowlAcceptMixin {
 
     @WrapOperation(
             method = "use",
-            at = @At(value = "INVOKE", target = "Lnet/minecraft/world/item/ItemStack;is(Lnet/minecraft/world/item/Item;)Z", remap = true)
+            at = @At(value = "INVOKE", target = "Lnet/minecraft/world/item/ItemStack;is(Lnet/minecraft/world/item/Item;)Z", remap = true),
+            remap = true
     )
     private boolean sdtfc$acceptCeramicBowl(ItemStack instance, Item itemLike, Operation<Boolean> original
     ) {

@@ -28,7 +28,7 @@ public class EventHandler {
         final IEventBus bus = MinecraftForge.EVENT_BUS;
         bus.addListener(EventHandler::onRegisterCommands);
         bus.addListener(EventHandler::onDrop);
-        bus.addListener(EventHandler::onDebugRightClick);
+        //bus.addListener(EventHandler::onDebugRightClick);
         bus.addListener(DelayedStriderLoafTask::onServerTickEnd);
     }
 
