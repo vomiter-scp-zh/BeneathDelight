@@ -1,5 +1,6 @@
 package com.vomiter.beneathdelight.data;
 
+import com.vomiter.beneathdelight.BeneathDelight;
 import com.vomiter.beneathdelight.data.loot.ModLootTables;
 import com.vomiter.beneathdelight.data.recipe.ModCraftingRecipes;
 import com.vomiter.beneathdelight.data.recipe.ModRecipeProvider;
@@ -21,5 +22,6 @@ public class ModDataGenerator {
         generator.addProvider(event.includeServer(), new ModLootTables(output));
         new ModTagProviders(event);
         generator.addProvider(event.includeServer(), new ModRecipeProvider(output));
+        generator.addProvider(event.includeServer(), BeneathDelight.foodAndCookingGenerator.provider());
     }
 }

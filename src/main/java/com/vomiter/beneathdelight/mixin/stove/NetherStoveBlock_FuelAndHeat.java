@@ -2,7 +2,7 @@ package com.vomiter.beneathdelight.mixin.stove;
 
 import com.soytutta.mynethersdelight.common.block.NetherStoveBlock;
 import com.soytutta.mynethersdelight.common.block.entity.NetherStoveBlockEntity;
-import com.vomiter.survivorsdelight.common.device.stove.IStoveBlockEntity;
+import com.vomiter.survivorsdelight.adapter.stove.IStoveBlockEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;

@@ -1,5 +1,7 @@
 package com.vomiter.beneathdelight.data;
 
+import com.eerussianguy.beneath.common.blocks.BeneathBlockTags;
+import com.soytutta.mynethersdelight.common.registry.MNDBlocks;
 import com.vomiter.beneathdelight.BeneathDelight;
 import com.vomiter.beneathdelight.Helpers;
 import net.minecraft.core.HolderLookup;
@@ -44,6 +46,7 @@ public class ModTagProviders {
 
         @Override
         protected void addTags(HolderLookup.@NotNull Provider lookupProvider) {
+            tag(BeneathBlockTags.NETHER_BUSH_PLANTABLE_ON).add(MNDBlocks.RESURGENT_SOIL.get());
 
         }
     }

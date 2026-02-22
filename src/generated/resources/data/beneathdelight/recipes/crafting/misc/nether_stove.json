@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "B": {
+      "item": "minecraft:polished_blackstone_bricks"
+    },
+    "I": {
+      "item": "tfc:wrought_iron_grill"
+    },
+    "N": {
+      "item": "minecraft:nether_bricks"
+    },
+    "f": {
+      "tag": "mynethersdelight:stove_fire_fuel"
+    },
+    "n": {
+      "item": "minecraft:netherrack"
+    }
+  },
+  "pattern": [
+    "NIN",
+    "BfB",
+    "BnB"
+  ],
+  "result": {
+    "item": "farmersdelight:stove"
+  },
+  "show_notification": true
+}

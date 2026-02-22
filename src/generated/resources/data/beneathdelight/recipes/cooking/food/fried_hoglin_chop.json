@@ -1,0 +1,40 @@
+{
+  "type": "farmersdelight:cooking",
+  "container": {
+    "item": "minecraft:bowl"
+  },
+  "cookingtime": 200,
+  "experience": 1.0,
+  "fluid": {
+    "amount": 100,
+    "ingredient": {
+      "tag": "tfc:milks"
+    }
+  },
+  "ingredients": [
+    {
+      "type": "tfc:not_rotten",
+      "ingredient": {
+        "tag": "mynethersdelight:loin_hoglin"
+      }
+    },
+    {
+      "type": "tfc:not_rotten",
+      "ingredient": {
+        "tag": "tfc:foods/dough"
+      }
+    },
+    {
+      "item": "minecraft:egg"
+    },
+    {
+      "type": "tfc:not_rotten",
+      "ingredient": {
+        "item": "mynethersdelight:bullet_pepper"
+      }
+    }
+  ],
+  "result": {
+    "item": "mynethersdelight:fried_hoglin_chop"
+  }
+}

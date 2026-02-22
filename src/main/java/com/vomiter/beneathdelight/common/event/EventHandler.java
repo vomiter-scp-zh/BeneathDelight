@@ -2,7 +2,6 @@ package com.vomiter.beneathdelight.common.event;
 
 import com.soytutta.mynethersdelight.common.registry.MNDItems;
 import com.vomiter.beneathdelight.common.command.ModCommand;
-import com.vomiter.beneathdelight.common.util.DelayedStriderLoafTask;
 import com.vomiter.survivorsdelight.common.food.block.SDDecayingBlockEntity;
 import com.vomiter.survivorsdelight.util.SDUtils;
 import net.dries007.tfc.common.items.Food;

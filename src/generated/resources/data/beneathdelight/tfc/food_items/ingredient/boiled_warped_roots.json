@@ -1,0 +1,10 @@
+{
+  "ingredient": {
+    "item": "beneathdelight:boiled_warped_roots"
+  },
+  "hunger": 1,
+  "saturation": 0.1,
+  "water": 0.0,
+  "decay_modifier": 1.0,
+  "vegetables": 0.5
+}

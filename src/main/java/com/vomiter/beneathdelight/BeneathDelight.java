@@ -1,28 +1,20 @@
 package com.vomiter.beneathdelight;
 
 import com.mojang.logging.LogUtils;
-import com.soytutta.mynethersdelight.common.registry.MNDBlocks;
 import com.vomiter.beneathdelight.common.event.EventHandler;
-import com.vomiter.beneathdelight.common.registry.ModRegistries;
+import com.vomiter.beneathdelight.registry.ModRegistries;
 import com.vomiter.beneathdelight.compat.ValidBlockEntityExpansion;
 import com.vomiter.beneathdelight.data.ModDataGenerator;
-import com.vomiter.survivorsdelight.common.food.block.DecayingFeastBlockEntity;
-import com.vomiter.survivorsdelight.common.food.block.SDDecayingBlockEntity;
-import com.vomiter.survivorsdelight.mixin.BlockEntityTypeAccessor;
-import com.vomiter.survivorsdelight.registry.SDBlockEntityTypes;
-import net.dries007.tfc.common.blockentities.FarmlandBlockEntity;
-import net.dries007.tfc.common.blockentities.TFCBlockEntities;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.entity.BlockEntityType;
+import com.vomiter.survivorsdelight.common.food.FoodContainerExpansion;
+import com.vomiter.survivorsdelight.data.food.SDFoodAndRecipeGenerator;
+import net.dries007.tfc.common.items.TFCItems;
+import net.minecraft.world.item.Items;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.slf4j.Logger;
-import vectorwing.farmersdelight.common.registry.ModBlocks;
-
-import java.util.HashSet;
 
 @Mod(BeneathDelight.MOD_ID)
 public class BeneathDelight
@@ -38,27 +30,24 @@ public class BeneathDelight
     *  [X] STRIDER LOAF
     *  [X] COLD STRIDER LOAF
      */
+    //TODO: [X] brick cabinet
+    //TODO: [X] make hoglins drop loin
+    //TODO: [X] Hot cream, make "red/blue steel bucket" able to replace the bucket as container
+    //TODO: [X] make soul rich soil support mushroom
+    //TODO: [X] make resurgent farm valid to grow nether crop in overworld
+    //TODO: [X] register cooked fungus to be food
+    //TODO: [ ] make wart not plantable on resurgent soil
 
-    //TODO: hell forge heat source for resurgent soil farmland
-    //TODO: make soul rich soil support mushroom
-    //TODO: brick cabinet
-    //TODO: make hoglins drop loin
-    //TODO: stuffed hoglin decay
     //TODO: hoglin trophy gold ingot -> brass mechanism
-    //TODO: hotdog accept tfc breads
-    //TODO: sausage and potatoes accept tfc potato
-    //TODO: breakfast sampler accept tfc boiled/fried egg
-    //TODO: deviled egg accept tfc boiled egg
 
 
-    //TODO: Hot cream, make "red/blue steel bucket" able to replace the bucket as container
+
 
     public static final String MOD_ID = "beneathdelight";
     public static final Logger LOGGER = LogUtils.getLogger();
+    public static final SDFoodAndRecipeGenerator foodAndCookingGenerator = new SDFoodAndRecipeGenerator(MOD_ID);
 
     public BeneathDelight(FMLJavaModLoadingContext context) {
-
-
         EventHandler.init();
         IEventBus modBus = context.getModEventBus();
         modBus.addListener(this::commonSetup);
@@ -69,6 +58,14 @@ public class BeneathDelight
 
     private void commonSetup(final FMLCommonSetupEvent event) {
         ValidBlockEntityExpansion.commonSetup(event);
+        event.enqueueWork(() -> {
+            FoodContainerExpansion.register(
+                    Items.BUCKET,
+                    (stack -> stack.is(TFCItems.RED_STEEL_BUCKET.get())
+                            || stack.is(TFCItems.BLUE_STEEL_BUCKET.get())
+                    )
+            );
+        });
     }
 
 }

@@ -4,6 +4,7 @@
   "package": "com.vomiter.beneathdelight.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
+    "farming.NCropUtilMixin",
     "farming.NetherCropBlockMixin",
     "farming.ResurgentFarmlandMixin",
     "farming.ResurgentSoilMixin",
@@ -16,6 +17,7 @@
     "food.block.StuffedHoglinBlock_BowlAcceptMixin",
     "food.block.StuffedHoglinBlock_BreakRedirectMixin",
     "stove.NetherStoveBlock_FuelAndHeat",
+    "stove.NetherStoveBlock_PlacePot",
     "stove.NetherStoveBlockEntity_Accessor",
     "stove.NetherStoveBlockEntity_AccessorImp",
     "stove.NetherStoveBlockEntity_FuelAndHeat"

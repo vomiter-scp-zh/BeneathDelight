@@ -2,8 +2,8 @@ package com.vomiter.beneathdelight.mixin.food.block;
 
 import com.soytutta.mynethersdelight.common.block.BreadLoafBlock;
 import com.vomiter.beneathdelight.common.food.block.DecayingBreadLoafBlockEntity;
-import com.vomiter.beneathdelight.common.registry.ModBlockEntityTypes;
-import com.vomiter.survivorsdelight.common.food.block.ISDDecayingBlock;
+import com.vomiter.beneathdelight.registry.ModBlockEntityTypes;
+import com.vomiter.survivorsdelight.adapter.food_block.ISDDecayingBlock;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;

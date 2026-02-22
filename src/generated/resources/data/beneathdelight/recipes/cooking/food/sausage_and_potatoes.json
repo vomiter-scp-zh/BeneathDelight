@@ -1,0 +1,37 @@
+{
+  "type": "farmersdelight:cooking",
+  "container": {
+    "item": "minecraft:bowl"
+  },
+  "cookingtime": 200,
+  "experience": 1.0,
+  "fluid": {
+    "amount": 100,
+    "ingredient": {
+      "tag": "survivorsdelight:cooking_oils"
+    }
+  },
+  "ingredients": [
+    {
+      "type": "tfc:not_rotten",
+      "ingredient": {
+        "tag": "forge:cooked_sausage"
+      }
+    },
+    {
+      "type": "tfc:not_rotten",
+      "ingredient": {
+        "tag": "forge:cooked_sausage"
+      }
+    },
+    {
+      "type": "tfc:not_rotten",
+      "ingredient": {
+        "item": "tfc:food/potato"
+      }
+    }
+  ],
+  "result": {
+    "item": "mynethersdelight:sausage_and_potatoes"
+  }
+}

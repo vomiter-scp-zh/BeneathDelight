@@ -3,8 +3,7 @@ package com.vomiter.beneathdelight.data;
 import com.soytutta.mynethersdelight.MyNethersDelight;
 import com.vomiter.beneathdelight.BeneathDelight;
 import com.vomiter.beneathdelight.Helpers;
-import com.vomiter.beneathdelight.common.registry.ModBlocks;
-import com.vomiter.survivorsdelight.util.SDUtils;
+import com.vomiter.beneathdelight.registry.ModBlocks;
 import net.minecraft.core.Direction;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
@@ -56,8 +55,15 @@ public class ModBlockStateProvider extends BlockStateProvider {
         registerMNDCabinet(ModBlocks.RED_NETHER_BRICKS_CABINET.get());
         registerMNDCabinet(ModBlocks.NETHER_BRICKS_CABINET.get());
         registerMNDCabinet(ModBlocks.POWDERY_CABINET.get());
+        trackModel(MyNethersDelight.MODID, "item/crimson_fungus_colony");
+        trackModel(MyNethersDelight.MODID, "item/warped_fungus_colony");
 
-
+        itemModels().withExistingParent("boiled_crimson_fungus", mcLoc("crimson_fungus"));
+        itemModels().withExistingParent("boiled_warped_fungus", mcLoc("warped_fungus"));
+        itemModels().withExistingParent("boiled_crimson_roots", mcLoc("crimson_roots"));
+        itemModels().withExistingParent("boiled_warp_roots", mcLoc("warped_roots"));
+        itemModels().withExistingParent("boiled_crimson_fungus_colony", Helpers.id(MyNethersDelight.MODID,"crimson_fungus_colony"));
+        itemModels().withExistingParent("boiled_warp_fungus_colony", Helpers.id(MyNethersDelight.MODID,"warped_fungus_colony"));
     }
 
     private void registerMNDCabinet(Block block){

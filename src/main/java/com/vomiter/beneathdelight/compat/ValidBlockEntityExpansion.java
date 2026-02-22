@@ -1,7 +1,9 @@
 package com.vomiter.beneathdelight.compat;
 
+import com.eerussianguy.beneath.common.blockentities.BeneathBlockEntities;
+import com.eerussianguy.beneath.common.blockentities.SoulFarmlandBlockEntity;
 import com.soytutta.mynethersdelight.common.registry.MNDBlocks;
-import com.vomiter.beneathdelight.common.registry.ModBlocks;
+import com.vomiter.beneathdelight.registry.ModBlocks;
 import com.vomiter.survivorsdelight.common.container.SDCabinetBlockEntity;
 import com.vomiter.survivorsdelight.common.food.block.DecayingFeastBlockEntity;
 import com.vomiter.survivorsdelight.mixin.BlockEntityTypeAccessor;
@@ -20,6 +22,15 @@ public class ValidBlockEntityExpansion {
     static void expand(){
         feastDecay();
         sdCabinet();
+        farmland();
+    }
+
+    static void farmland(){
+        BlockEntityType<SoulFarmlandBlockEntity> type = BeneathBlockEntities.SOUL_FARMLAND.get();
+        BlockEntityTypeAccessor acc = (BlockEntityTypeAccessor)type;
+        HashSet<Block> validBlocks = new HashSet<>(acc.getValidBlocks());
+        acc.setValidBlocks(validBlocks);
+        validBlocks.add(MNDBlocks.RESURGENT_SOIL_FARMLAND.get());
     }
 
     static void feastDecay(){

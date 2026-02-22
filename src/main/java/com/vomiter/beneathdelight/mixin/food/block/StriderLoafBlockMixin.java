@@ -4,7 +4,7 @@ import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import com.llamalad7.mixinextras.sugar.Local;
 import com.soytutta.mynethersdelight.common.block.StriderloafBlock;
-import com.vomiter.beneathdelight.common.util.DelayedStriderLoafTask;
+import com.vomiter.beneathdelight.common.event.DelayedStriderLoafTask;
 import com.vomiter.survivorsdelight.common.food.block.DecayFoodTransfer;
 import com.vomiter.survivorsdelight.common.food.block.DecayingFeastBlockEntity;
 import com.vomiter.survivorsdelight.util.HeatHelper;

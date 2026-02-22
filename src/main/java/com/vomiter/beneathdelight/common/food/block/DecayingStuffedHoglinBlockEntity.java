@@ -1,7 +1,7 @@
 package com.vomiter.beneathdelight.common.food.block;
 
 import com.soytutta.mynethersdelight.common.block.StuffedHoglinBlock;
-import com.vomiter.beneathdelight.common.registry.ModBlockEntityTypes;
+import com.vomiter.beneathdelight.registry.ModBlockEntityTypes;
 import com.vomiter.survivorsdelight.common.food.block.SDDecayingBlockEntity;
 import net.dries007.tfc.common.capabilities.food.FoodCapability;
 import net.minecraft.core.BlockPos;

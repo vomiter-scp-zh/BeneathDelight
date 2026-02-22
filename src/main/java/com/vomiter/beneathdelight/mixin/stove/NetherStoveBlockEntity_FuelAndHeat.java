@@ -1,9 +1,10 @@
 package com.vomiter.beneathdelight.mixin.stove;
 
+import com.soytutta.mynethersdelight.common.block.NetherStoveBlock;
 import com.soytutta.mynethersdelight.common.block.entity.NetherStoveBlockEntity;
 import com.vomiter.survivorsdelight.HeatSourceBlockEntity;
-import com.vomiter.survivorsdelight.common.device.stove.IStoveBlockEntity;
-import com.vomiter.survivorsdelight.common.device.stove.StoveOvenCompat;
+import com.vomiter.survivorsdelight.adapter.stove.IStoveBlockEntity;
+import com.vomiter.survivorsdelight.compat.firmalife.StoveOvenCompat;
 import net.dries007.tfc.common.recipes.HeatingRecipe;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
@@ -24,6 +25,11 @@ public abstract class NetherStoveBlockEntity_FuelAndHeat implements HeatSourceBl
     @Unique private static final String SD_LEFT_BURN_TICK = "SDLeftBurnTick";
     @Unique private int leftBurnTick = 1200;
     @Unique private final HeatingRecipe[] cachedHeatingRecipes = new HeatingRecipe[6];
+
+    public float sdtfc$getTemperature(){
+        if(!((BlockEntity)(Object)this).getBlockState().getValue(NetherStoveBlock.LIT)) return 0;
+        return IStoveBlockEntity.sdtfc$getStaticTemperature();
+    }
 
     @Inject(method = "cookingTick", at = @At("HEAD"))
     private static void injectedCookingTick(Level level, BlockPos pos, BlockState state, NetherStoveBlockEntity stove, CallbackInfo ci){
@@ -61,16 +67,6 @@ public abstract class NetherStoveBlockEntity_FuelAndHeat implements HeatSourceBl
     @Override
     public HeatingRecipe[] sdtfc$getCachedRecipes() {
         return cachedHeatingRecipes;
-    }
-
-    @Override
-    public float sdtfc$getTemperature() {
-        if(!((BlockEntity)(Object)this).getBlockState().getValue(StoveBlock.LIT)) return 0;
-        if(sdtfc$getLeftBurnTick() > 0){
-            //sdtfc$reduceLeftBurnTick(1);
-            return IStoveBlockEntity.sdtfc$getStaticTemperature();
-        }
-        return 0;
     }
 
     @Inject(method = "load", at = @At("TAIL"), remap = true)
