@@ -41,5 +41,11 @@ public class ModBlocks {
             = register("blackstone_bricks_cabinet", () -> new SDCabinetBlock(BlockBehaviour.Properties.copy(Blocks.POLISHED_BLACKSTONE_BRICKS)));
     public static final RegistryObject<Block> POWDERY_CABINET
             = register("powdery_cabinet", () -> new SDCabinetBlock(BlockBehaviour.Properties.copy(Blocks.BARREL).sound(SoundType.BAMBOO_WOOD).mapColor(MapColor.TERRACOTTA_GRAY)));
+    public static final RegistryObject<Block> CRIMSON_CABINET
+            = register("planks/cabinet/crimson", () -> new SDCabinetBlock(BlockBehaviour.Properties.copy(Blocks.BARREL)));
+    public static final RegistryObject<Block> WARPED_CABINET
+            = register("planks/cabinet/warped", () -> new SDCabinetBlock(BlockBehaviour.Properties.copy(Blocks.BARREL)));
+
+
 
 }

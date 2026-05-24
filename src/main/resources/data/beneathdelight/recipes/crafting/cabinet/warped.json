@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "survivorsdelight:cabinet",
+  "key": {
+    "L": {
+      "item": "beneath:wood/planks/warped_trapdoor"
+    },
+    "T": {
+      "item": "beneath:wood/lumber/warped"
+    }
+  },
+  "pattern": [
+    "LLL",
+    "T T",
+    "LLL"
+  ],
+  "result": {
+    "item": "beneathdelight:planks/cabinet/warped"
+  },
+  "show_notification": true
+}
