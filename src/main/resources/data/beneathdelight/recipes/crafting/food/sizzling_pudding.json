@@ -1,0 +1,30 @@
+{
+  "type": "survivorsdelight:nutrition_crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "mynethersdelight:ghasmati"
+    },
+    {
+      "tag": "forge:eggs"
+    },
+    {
+      "item": "minecraft:blaze_powder"
+    },
+    {
+      "item": "minecraft:bowl"
+    },
+    {
+      "type":"tfc:fluid_item",
+      "fluid_ingredient": {
+        "ingredient":{
+          "tag":"tfc:milks"
+        },
+        "amount":100
+      }
+    }
+  ],
+  "container": "minecraft:bowl",
+  "result": {
+    "item": "mynethersdelight:sizzling_pudding"
+  }
+}
