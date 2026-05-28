@@ -1,0 +1,14 @@
+{
+  "type": "survivorsdelight:nutrition_crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "mynethersdelight:roasted_sausage"
+    },
+    {
+      "tag": "tfc:sandwich_bread"
+    }
+  ],
+  "result": {
+    "item": "mynethersdelight:hotdog"
+  }
+}

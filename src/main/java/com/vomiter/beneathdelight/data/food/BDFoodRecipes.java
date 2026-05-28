@@ -57,6 +57,10 @@ public class BDFoodRecipes {
         return BeneathDelight.foodAndCookingGenerator.crafting(id, outItem, count);
     }
 
+    private SDFoodAndRecipeGenerator.ShapelessCraftingBuilder craftShapeless(String id, ItemLike outItem, int count){
+        return BeneathDelight.foodAndCookingGenerator.craftingShapeless(id, outItem, count);
+    }
+
     private SDFoodDataProvider.Builder buildFood(String id){
         return BeneathDelight.foodAndCookingGenerator.provider().newBuilder(id);
     }
@@ -70,6 +74,18 @@ public class BDFoodRecipes {
     }
 
     public void save(Consumer<FinishedRecipe> out){
+        var provider = BeneathDelight.foodAndCookingGenerator.provider();
+
+        craftShapeless("food/hotdog", MNDItems.HOTDOG.get(), 1)
+                .requires(MNDItems.ROASTED_SAUSAGE.get())
+                .requires(bread)
+                .build(out)
+                .saveFoodData();
+
+        provider.newBuilder("food/chilidog")
+                .item(MNDItems.CHILIDOG.get())
+                .type("dynamic")
+                .save();
 
         cook("ingredient/hot_cream", MNDItems.HOT_CREAM.get(), 1, 200, 0.5, Items.BUCKET)
                 .food(Items.EGG)
@@ -262,7 +278,6 @@ public class BDFoodRecipes {
                 .build(out)
                 .saveFoodData();
 
-        var provider = BeneathDelight.foodAndCookingGenerator.provider();
         provider.newBuilder("ingredient/ghasta")
                 .item(MNDItems.GHASTA.get())
                 .setDecay(0)
