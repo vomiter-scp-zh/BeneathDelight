@@ -5,12 +5,6 @@
       "item": "mynethersdelight:ghasmati"
     },
     {
-      "item": "mynethersdelight:strider_egg"
-    },
-    {
-      "item": "minecraft:blaze_powder"
-    },
-    {
       "item": "minecraft:bowl"
     },
     {
@@ -25,6 +19,6 @@
   ],
   "container": "minecraft:bowl",
   "result": {
-    "item": "mynethersdelight:sizzling_pudding"
+    "item": "mynethersdelight:dried_ghast_with_milk"
   }
 }

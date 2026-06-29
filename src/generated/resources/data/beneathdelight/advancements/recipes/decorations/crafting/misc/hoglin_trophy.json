@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_magma_cream": {
+    "has_hoglin_hide": {
       "conditions": {
         "items": [
           {
             "items": [
-              "minecraft:magma_cream"
+              "mynethersdelight:hoglin_hide"
             ]
           }
         ]
@@ -15,20 +15,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "beneathdelight:crafting/sweetened_magma_cream"
+        "recipe": "beneathdelight:crafting/misc/hoglin_trophy"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_magma_cream",
+      "has_hoglin_hide",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "beneathdelight:crafting/sweetened_magma_cream"
+      "beneathdelight:crafting/misc/hoglin_trophy"
     ]
   },
   "sends_telemetry_event": false

@@ -1,0 +1,21 @@
+{
+  "type": "survivorsdelight:nutrition_crafting_shapeless",
+  "container": "minecraft:bowl",
+  "ingredients": [
+    {
+      "item": "mynethersdelight:strider_egg"
+    },
+    {
+      "item": "mynethersdelight:minced_strider"
+    },
+    {
+      "item": "mynethersdelight:minced_strider"
+    },
+    {
+      "item": "minecraft:bowl"
+    }
+  ],
+  "result": {
+    "item": "mynethersdelight:bleeding_tartar"
+  }
+}

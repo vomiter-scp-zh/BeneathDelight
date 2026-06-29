@@ -88,7 +88,8 @@ public class ModTagProviders {
                             MNDItems.PLATE_OF_STUFFED_HOGLIN_SNOUT.get(),
                             MNDItems.PLATE_OF_STUFFED_HOGLIN.get(),
                             MNDItems.STRIDERLOAF.get(),
-                            MNDItems.COLD_STRIDERLOAF.get()
+                            MNDItems.COLD_STRIDERLOAF.get(),
+                            MNDItems.GHASTA_WITH_CREAM.get()
                     );
         }
     }

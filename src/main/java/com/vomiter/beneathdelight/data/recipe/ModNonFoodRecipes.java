@@ -1,5 +1,6 @@
 package com.vomiter.beneathdelight.data.recipe;
 
+import com.eerussianguy.beneath.common.blocks.BeneathBlocks;
 import com.eerussianguy.beneath.common.items.BeneathItems;
 import com.soytutta.mynethersdelight.common.registry.MNDBlocks;
 import com.soytutta.mynethersdelight.common.registry.MNDItems;
@@ -69,7 +70,7 @@ public class ModNonFoodRecipes {
                 .define('M', TFCItems.BRASS_MECHANISMS.get())
                 .unlockedBy("has_hoglin_hide",
                         InventoryChangeTrigger.TriggerInstance.hasItems(MNDItems.HOGLIN_HIDE.get()))
-                .save(out, Helpers.id("crafting/hoglin_trophy"));
+                .save(out, Helpers.id("crafting/misc/hoglin_trophy"));
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, ModItems.SWEETENED_MAGMA_CREAM.get())
                 .requires(SDTags.ItemTags.TFC_SWEETENER)
@@ -77,7 +78,14 @@ public class ModNonFoodRecipes {
                 .requires(SDTags.ItemTags.TFC_SWEETENER)
                 .requires(Items.MAGMA_CREAM)
                 .unlockedBy("has_magma_cream", InventoryChangeTrigger.TriggerInstance.hasItems(Items.MAGMA_CREAM))
-                .save(out, Helpers.id("crafting/sweetened_magma_cream"));
+                .save(out, Helpers.id("crafting/ingredient/sweetened_magma_cream"));
+
+        CuttingBoardRecipeBuilder.cuttingRecipe(
+                        Ingredient.of(MNDItems.STRIDER_ROCK.get()),
+                        Ingredient.of(SDTags.ItemTags.create("tfc", "pickaxes")),
+                        MNDItems.STRIDER_EGG.get())
+                .addResultWithChance(BeneathBlocks.NETHER_PEBBLE.get(), 0.25f)
+                .save(out, Helpers.id("cutting/strider_rock"));
 
         CuttingBoardRecipeBuilder.cuttingRecipe(
                 Ingredient.of(MNDItems.POWDER_CANNON.get()),

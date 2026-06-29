@@ -39,6 +39,12 @@ public abstract class RecipeManager_FDFilterMixin {
     private Map<ResourceLocation, Recipe<?>> byName;
 
     private static List<String> pathsToBlock = List.of(
+            "crafting/hotdog_with_nether_salad",
+            "cooking/rock_soup",
+            "cutting/strider_egg",
+            "crafting/bleeding_tartar",
+            "crafting/sizzling_pudding",
+            "crafting/rock_soup",
             "crafting/nethers_stove",
             "crafting/block_of_powdery_cabinet",
             "crafting/hoglin_trophy",
@@ -79,7 +85,8 @@ public abstract class RecipeManager_FDFilterMixin {
             "cooking/hotcream",
             "crafting/hotcream_cone",
             "cutting/magma_cake",
-            "crafting/hot_wings_bucket"
+            "crafting/hot_wings_bucket",
+            "crafting/hot_wings_bucket_alt"
     );
 
 

@@ -10,6 +10,7 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.damagesource.DamageType;
 import net.minecraft.world.entity.item.ItemEntity;
+import net.minecraft.world.entity.monster.Strider;
 import net.minecraft.world.entity.monster.hoglin.Hoglin;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -19,7 +20,7 @@ import vectorwing.farmersdelight.common.registry.ModItems;
 
 import java.util.concurrent.atomic.AtomicInteger;
 
-public class HoglinDropConvert {
+public class MobDropConvert {
     static TagKey<DamageType> isPiercing = TagKey.create(Registries.DAMAGE_TYPE, SDUtils.RLUtils.build("tfc", "is_piercing"));
     static int convertHam(LivingDropsEvent event, int porkCount){
         boolean hasHam = event.getDrops().stream()
@@ -51,7 +52,27 @@ public class HoglinDropConvert {
         return porkCount;
     }
 
-    public static void onDrop(LivingDropsEvent event){
+    public static void onStriderDrop(LivingDropsEvent event){
+        if(event.getEntity().level().isClientSide) return;
+        if(!(event.getEntity() instanceof Strider strider)) return;
+        boolean killedWithMeleePiercing = (event.getSource().getDirectEntity() instanceof Player killer) && killer.getMainHandItem().is(TFCTags.Items.DEALS_PIERCING_DAMAGE);
+        boolean killedWithRangedPiercing = event.getSource().is(isPiercing);
+        if(killedWithRangedPiercing || killedWithMeleePiercing){
+            if(strider.getRandom().nextFloat() < 0.3){
+                var level = strider.level();
+                level.addFreshEntity(new ItemEntity(
+                        level,
+                        event.getEntity().getX(),
+                        event.getEntity().getY(),
+                        event.getEntity().getZ(),
+                        new ItemStack(MNDItems.STRIDER_ROCK.get(), 1)
+                ));
+            }
+        }
+
+    }
+
+    public static void onHoglinDrop(LivingDropsEvent event){
         if(event.getEntity().level().isClientSide) return;
         if(!(event.getEntity() instanceof Hoglin)) return;
         boolean killedWithMeleePiercing = (event.getSource().getDirectEntity() instanceof Player killer) && killer.getMainHandItem().is(TFCTags.Items.DEALS_PIERCING_DAMAGE);

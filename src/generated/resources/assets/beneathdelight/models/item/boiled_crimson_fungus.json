@@ -1,3 +1,6 @@
 {
-  "parent": "minecraft:item/crimson_fungus"
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "beneathdelight:item/boiled_crimson_fungus"
+  }
 }

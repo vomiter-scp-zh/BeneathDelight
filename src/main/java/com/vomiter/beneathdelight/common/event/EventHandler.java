@@ -18,7 +18,8 @@ public class EventHandler {
     public static void init(){
         final IEventBus bus = MinecraftForge.EVENT_BUS;
         bus.addListener(EventHandler::onRegisterCommands);
-        bus.addListener(HoglinDropConvert::onDrop);
+        bus.addListener(MobDropConvert::onHoglinDrop);
+        bus.addListener(MobDropConvert::onStriderDrop);
         //bus.addListener(EventHandler::onDebugRightClick);
         bus.addListener(DelayedStriderLoafTask::onServerTickEnd);
     }

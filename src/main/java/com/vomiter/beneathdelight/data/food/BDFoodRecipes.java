@@ -76,6 +76,99 @@ public class BDFoodRecipes {
     public void save(Consumer<FinishedRecipe> out){
         var provider = BeneathDelight.foodAndCookingGenerator.provider();
 
+        craftShapeless("food/hot_wings", MNDItems.HOT_WINGS.get(), 3)
+                .requires(MNDItems.HOT_WINGS_BUCKET.get())
+                .requires(Items.BOWL)
+                .requires(Items.BOWL)
+                .requires(Items.BOWL)
+                .build(out)
+                .saveFoodData();
+
+        craftShapeless("food/hot_wings_bucket", MNDItems.HOT_WINGS_BUCKET.get(), 1)
+                .requires(MNDItems.HOT_WINGS.get())
+                .requires(MNDItems.HOT_WINGS.get())
+                .requires(MNDItems.HOT_WINGS.get())
+                .requires(Items.BUCKET)
+                .container(Items.BUCKET)
+                .build(out)
+                .saveFoodData();
+
+        craftShapeless("food/hot_cream_cone", MNDItems.HOT_CREAM_CONE.get(), 3)
+                .requires(MNDItems.HOT_CREAM.get())
+                .requires(MNDItems.POWDER_CANNON.get())
+                .requires(MNDItems.POWDER_CANNON.get())
+                .requires(MNDItems.POWDER_CANNON.get())
+                .build(out)
+                .saveFoodData();
+
+        craftShapeless("food/hotdog_with_nether_salad", MNDItems.HOTDOG_WITH_NETHER_SALAD.get(), 2)
+                .requires(vectorwing.farmersdelight.common.registry.ModItems.NETHER_SALAD.get())
+                .requires(MNDItems.HOTDOG.get())
+                .requires(MNDItems.HOTDOG.get())
+                .build(out)
+                .saveFoodData();
+
+        provider.newBuilder("food/dried_ghast_with_milk")
+                .item(MNDItems.DRIED_GHAST_WITH_MILK.get())
+                .type("dynamic")
+                .save();
+
+
+        /*
+        provider.newBuilder("food/dried_ghast_with_milk")
+                .item(MNDItems.DRIED_GHAST_WITH_MILK.get())
+                .setDairy(1)
+                .setProtein(0.2)
+                .setDecay(4)
+                .setHunger(1)
+                .save();
+
+         */
+
+        cook("food/rock_soup", MNDItems.ROCK_SOUP.get(), 1, 600, 0.2, Items.BOWL)
+                .food(ModItems.SWEETENED_MAGMA_CREAM.get())
+                .food(ModItems.SWEETENED_MAGMA_CREAM.get())
+                .food(MNDItems.STRIDER_EGG.get())
+                .food(MNDItems.STRIDER_EGG.get())
+                .build(out)
+                .saveFoodData();
+
+        provider.newBuilder("food/sizzling_pudding")
+                .item(MNDItems.SIZZLING_PUDDING.get())
+                .type("dynamic")
+                .save();
+
+
+        /*
+        provider.newBuilder("food/sizzling_pudding")
+                .item(MNDItems.SIZZLING_PUDDING.get())
+                .from(Food.BOILED_EGG)
+                .addNutrientsAndSetMaxHunger(
+                        new FoodData(0,
+                                8,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0.2F,
+                                1,
+                                0
+                        ),
+                        1
+                )
+                .save();
+
+         */
+
+        craftShapeless("food/bleeding_tartar", MNDItems.BLEEDING_TARTAR.get(), 1)
+                .requires(MNDItems.STRIDER_EGG.get())
+                .requires(MNDItems.MINCED_STRIDER.get())
+                .requires(MNDItems.MINCED_STRIDER.get())
+                .requires(Items.BOWL)
+                .container(Items.BOWL)
+                .build(out)
+                .saveFoodData();
+
         craftShapeless("food/hotdog", MNDItems.HOTDOG.get(), 1)
                 .requires(MNDItems.ROASTED_SAUSAGE.get())
                 .requires(bread)
@@ -112,6 +205,7 @@ public class BDFoodRecipes {
                 .defineNonFood('b', Items.BOWL)
                 .defineNonFood('t', Items.GHAST_TEAR)
                 .defineFood('c', ModItems.SWEETENED_MAGMA_CREAM.get())
+                .container(Items.BOWL)
                 .build(out)
                 .saveFoodData();
 
@@ -227,7 +321,7 @@ public class BDFoodRecipes {
                 .saveFoodData();
 
         cook("food/spicy_curry", MNDItems.SPICY_CURRY.get(), 1, 900, 1, Items.BOWL)
-                .food(SDUtils.getTFCFoodItem(Food.RICE))
+                .food(SDUtils.getTFCFoodItem(Food.COOKED_RICE))
                 .food(SDTags.ItemTags.TFC_VEGETABLES)
                 .food(SDUtils.getTFCFoodItem(Food.PUMPKIN_CHUNKS))
                 .food(SDTags.ItemTags.TFC_RAW_MEATS)
@@ -309,16 +403,6 @@ public class BDFoodRecipes {
                 .slicedFrom(Food.COOKED_PORK, 2)
                 .save();
 
-        provider.newBuilder("feast/striderloaf")
-                .ingredient(Ingredient.of(MNDItems.STRIDERLOAF_BLOCK.get(), MNDItems.COLD_STRIDERLOAF_BLOCK.get()).toJson())
-                .multipliedFrom(Food.MUTTON, 4)
-                .save();
-
-        provider.newBuilder("feast/striderloaf_serving")
-                .ingredient(Ingredient.of(MNDItems.STRIDERLOAF.get(), MNDItems.COLD_STRIDERLOAF.get()).toJson())
-                .from(Food.MUTTON)
-                .save();
-
         provider.newBuilder("ingredient/strider_slice")
                 .item(MNDItems.STRIDER_SLICE.get())
                 .from(Food.MUTTON)
@@ -332,6 +416,11 @@ public class BDFoodRecipes {
         provider.newBuilder("ingredient/sweetened_magma_cream")
                 .item(ModItems.SWEETENED_MAGMA_CREAM.get())
                 .from(Food.LEMON)
+                .save();
+
+        provider.newBuilder("ingredient/strider_egg")
+                .item(MNDItems.STRIDER_EGG.get())
+                .from(Food.BOILED_EGG)
                 .save();
 
         Map.of(
@@ -430,22 +519,19 @@ public class BDFoodRecipes {
                 .addResultWithChance(Items.STRING, 0.5f, 2)
                 .save(out, Helpers.id("cutting/strider_slice"));
 
-        ShapelessRecipeBuilder.shapeless(
-                RecipeCategory.FOOD,
-                MNDItems.STRIDERLOAF_BLOCK.get())
-                .requires(NotRottenIngredient.of(Ingredient.of(MNDItems.STRIDER_SLICE.get())))
-                .requires(NotRottenIngredient.of(Ingredient.of(MNDItems.MINCED_STRIDER.get())))
-                .requires(NotRottenIngredient.of(Ingredient.of(MNDItems.MINCED_STRIDER.get())))
-                .requires(NotRottenIngredient.of(Ingredient.of(MNDItems.MINCED_STRIDER.get())))
-                .requires(NotRottenIngredient.of(Ingredient.of(MNDItems.MINCED_STRIDER.get())))
-                .requires(NotRottenIngredient.of(Ingredient.of(MNDItems.MINCED_STRIDER.get())))
-                .requires(NotRottenIngredient.of(Ingredient.of(MNDItems.MINCED_STRIDER.get())))
+        craftShapeless("feast/striderloaf", MNDItems.STRIDERLOAF_BLOCK.get(), 1)
+                .requires(MNDItems.STRIDER_SLICE.get())
+                .requires(MNDItems.MINCED_STRIDER.get())
+                .requires(MNDItems.MINCED_STRIDER.get())
+                .requires(MNDItems.MINCED_STRIDER.get())
+                .requires(MNDItems.MINCED_STRIDER.get())
+                .requires(MNDItems.MINCED_STRIDER.get())
+                .requires(MNDItems.MINCED_STRIDER.get())
+                .requires(MNDItems.MINCED_STRIDER.get())
                 .requires(Items.BOWL)
-                .unlockedBy(
-                        "get_strider_slice",
-                        InventoryChangeTrigger.TriggerInstance.hasItems(MNDItems.STRIDER_SLICE.get())
-                )
-                .save(out, Helpers.id("feast/striderloaf"));
+                .container(Items.BOWL)
+                .build(out)
+                .saveFoodData();
 
         ShapelessRecipeBuilder.shapeless(
                         RecipeCategory.FOOD,

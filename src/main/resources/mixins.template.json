@@ -11,6 +11,7 @@
     "farming.ResurgentSoilMixin",
     "food.block.BreadLoafBlock_BlockEntityMixin",
     "food.block.BreadLoafBlock_SliceMixin",
+    "food.block.GhastaWithCreamBlock_NeverExpireMixin",
     "food.block.MagmaCakeBlock_BlockEntityMixin",
     "food.block.MagmaCakeBlock_SliceMixin",
     "food.block.StriderLoafBlockMixin",

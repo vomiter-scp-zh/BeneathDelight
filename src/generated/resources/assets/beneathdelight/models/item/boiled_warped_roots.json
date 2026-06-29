@@ -1,3 +1,6 @@
 {
-  "parent": "minecraft:item/warped_roots"
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "beneathdelight:item/boiled_warped_roots"
+  }
 }

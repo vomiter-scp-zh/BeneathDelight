@@ -1,0 +1,18 @@
+{
+  "type": "survivorsdelight:nutrition_crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "farmersdelight:nether_salad"
+    },
+    {
+      "item": "mynethersdelight:hotdog"
+    },
+    {
+      "item": "mynethersdelight:hotdog"
+    }
+  ],
+  "result": {
+    "count": 2,
+    "item": "mynethersdelight:hotdog_with_nether_salad"
+  }
+}

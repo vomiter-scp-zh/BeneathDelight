@@ -1,0 +1,21 @@
+{
+  "type": "survivorsdelight:nutrition_crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "mynethersdelight:hot_cream"
+    },
+    {
+      "item": "mynethersdelight:powder_cannon"
+    },
+    {
+      "item": "mynethersdelight:powder_cannon"
+    },
+    {
+      "item": "mynethersdelight:powder_cannon"
+    }
+  ],
+  "result": {
+    "count": 3,
+    "item": "mynethersdelight:hot_cream_cone"
+  }
+}

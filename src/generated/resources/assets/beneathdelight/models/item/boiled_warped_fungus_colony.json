@@ -1,3 +1,6 @@
 {
-  "parent": "mynethersdelight:item/warped_fungus_colony"
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "beneathdelight:item/boiled_warped_fungus_colony"
+  }
 }

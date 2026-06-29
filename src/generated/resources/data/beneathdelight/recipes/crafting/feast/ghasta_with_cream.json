@@ -1,5 +1,6 @@
 {
   "type": "survivorsdelight:nutrition_crafting",
+  "container": "minecraft:bowl",
   "key": {
     "b": {
       "item": "minecraft:bowl"

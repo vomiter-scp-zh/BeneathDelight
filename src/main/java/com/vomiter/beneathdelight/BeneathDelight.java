@@ -41,9 +41,8 @@ public class BeneathDelight
     //TODO: [X] make soul rich soil support mushroom
     //TODO: [X] make resurgent farm valid to grow nether crop in overworld
     //TODO: [X] register cooked fungus to be food
-    //TODO: [ ] make wart not plantable on resurgent soil
-
-    //TODO: hoglin trophy gold ingot -> brass mechanism
+    //TODO: [X] make wart not plantable on resurgent soil
+    //TODO: [X] hoglin trophy gold ingot -> brass mechanism
 
 
 
@@ -69,12 +68,6 @@ public class BeneathDelight
     private void commonSetup(final FMLCommonSetupEvent event) {
         ValidBlockEntityExpansion.commonSetup(event);
         event.enqueueWork(() -> {
-            FoodContainerExpansion.register(
-                    Items.BUCKET,
-                    (stack -> stack.is(TFCItems.RED_STEEL_BUCKET.get())
-                            || stack.is(TFCItems.BLUE_STEEL_BUCKET.get())
-                    )
-            );
         });
     }
 

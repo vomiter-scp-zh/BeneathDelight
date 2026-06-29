@@ -6,7 +6,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
 public class ModItems {
-    static DeferredRegister<Item> ITEMS
+    public static DeferredRegister<Item> ITEMS
             = ModRegistries.createRegistry(ForgeRegistries.ITEMS);
 
     public static RegistryObject<Item> BOILED_CRIMSON_FUNGUS

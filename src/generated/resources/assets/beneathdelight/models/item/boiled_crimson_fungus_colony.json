@@ -1,3 +1,6 @@
 {
-  "parent": "mynethersdelight:item/crimson_fungus_colony"
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "beneathdelight:item/boiled_crimson_fungus_colony"
+  }
 }

@@ -15,7 +15,7 @@
     {
       "type": "tfc:not_rotten",
       "ingredient": {
-        "item": "tfc:food/rice"
+        "item": "tfc:food/cooked_rice"
       }
     },
     {
