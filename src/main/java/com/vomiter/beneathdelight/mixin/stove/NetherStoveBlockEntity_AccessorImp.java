@@ -8,6 +8,7 @@ import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.items.ItemStackHandler;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Unique;
 import vectorwing.farmersdelight.common.block.entity.SyncedBlockEntity;
 
 @Mixin(value = NetherStoveBlockEntity.class, remap = false)
@@ -36,6 +37,7 @@ public abstract class NetherStoveBlockEntity_AccessorImp extends SyncedBlockEnti
         }
         return null;
     };
+    @Unique
     public ResourceLocation[] sdtfc$getLastRecipeIDs(){
         if(this instanceof NetherStoveBlockEntity_Accessor acc){
             return acc.getLastRecipeIDs();

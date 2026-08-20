@@ -29,7 +29,6 @@ import java.util.Map;
 @Mixin(RecipeManager.class)
 public abstract class RecipeManager_FDFilterMixin {
 
-    // 原本是 private final，要標 @Mutable 才能重新指定
     @Shadow
     @Mutable
     private Map<RecipeType<?>, Map<ResourceLocation, Recipe<?>>> recipes;
@@ -96,7 +95,6 @@ public abstract class RecipeManager_FDFilterMixin {
                                         ProfilerFiller profiler,
                                         CallbackInfo ci) {
 
-        //SurvivorsDelight.LOGGER.info("Recipe Filter Operated");
         MinecraftServer server = ServerLifecycleHooks.getCurrentServer();
         RegistryAccess access = server != null ? server.registryAccess() : RegistryAccess.EMPTY;
 

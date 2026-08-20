@@ -37,7 +37,6 @@ public abstract class StuffedHoglinBlock_ServingMixin {
     )
     private boolean sdtfc$acceptCeramicBowl(ItemStack instance, Item itemLike, Operation<Boolean> original
     ) {
-        // 只在比較「Items.BOWL」那次放行：避免把其他 is(...) 全部污染
         if (itemLike == Items.BOWL && instance.is(TFCBlocks.CERAMIC_BOWL.get().asItem())) {
             return true;
         }
@@ -62,7 +61,7 @@ public abstract class StuffedHoglinBlock_ServingMixin {
             @Local(argsOnly = true) Player player,
             @Local(argsOnly = true) InteractionHand hand
     ) {
-        // 1) 正規化到 HEAD
+        // 正規化到 HEAD
         BlockEntity thisBe = level.getBlockEntity(pos);
         if(!(thisBe instanceof DecayingStuffedHoglinBlockEntity thisDecay)) return original.call(instance, stack);
         BlockPos headPos = thisDecay.getHeadPos();
@@ -72,7 +71,6 @@ public abstract class StuffedHoglinBlock_ServingMixin {
             thisDecay = (DecayingStuffedHoglinBlockEntity)thisBe;
         }
 
-        // 2) 把腐壞/食材/traits/creationDate 搬到 servingStack（沿用你現有 helper）
         ItemStack src = thisDecay.getStack();
         float factor = 0f;
         if(stack.is(MNDItems.PLATE_OF_STUFFED_HOGLIN_SNOUT.get())) factor = 0.5f;
@@ -82,7 +80,6 @@ public abstract class StuffedHoglinBlock_ServingMixin {
 
         DecayFoodTransfer.copyFoodState(src, stack, true, factor);
 
-        // 3) 如果是陶碗，寫 Container tag（沿用你 Feast 的作法）
         if (player.getItemInHand(hand).is(TFCBlocks.CERAMIC_BOWL.get().asItem())) {
             stack.getOrCreateTag().put("Container", player.getItemInHand(hand).copyWithCount(1).serializeNBT());
         }
