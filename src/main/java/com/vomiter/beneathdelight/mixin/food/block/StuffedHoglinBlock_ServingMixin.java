@@ -86,17 +86,4 @@ public abstract class StuffedHoglinBlock_ServingMixin {
 
         return original.call(instance, stack);
     }
-
-    @WrapOperation(
-            method = "use",
-            at = @At(value = "INVOKE", target = "Lnet/minecraft/world/item/ItemStack;is(Lnet/minecraft/tags/TagKey;)Z", remap = true)
-    )
-    private boolean useTFCKnife(ItemStack instance, TagKey<Item> tag, Operation<Boolean> original){
-        if(tag.location().equals(Helpers.id(FarmersDelight.MODID, "tools/knives"))){
-            return original.call(instance, TFCTags.Items.KNIVES);
-        }
-        return original.call(instance, tag);
-    }
-
-
 }

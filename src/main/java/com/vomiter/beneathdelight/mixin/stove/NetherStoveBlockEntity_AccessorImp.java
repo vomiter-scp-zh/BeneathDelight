@@ -4,17 +4,22 @@ import com.soytutta.mynethersdelight.common.block.entity.NetherStoveBlockEntity;
 import com.vomiter.beneathdelight.adapter.INetherStoveBlockEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.crafting.AbstractCookingRecipe;
+import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.items.ItemStackHandler;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
+import vectorwing.farmersdelight.common.block.AbstractStoveBlock;
+import vectorwing.farmersdelight.common.block.entity.AbstractStoveBlockEntity;
 import vectorwing.farmersdelight.common.block.entity.SyncedBlockEntity;
 
 @Mixin(value = NetherStoveBlockEntity.class, remap = false)
-public abstract class NetherStoveBlockEntity_AccessorImp extends SyncedBlockEntity implements INetherStoveBlockEntity {
-    public NetherStoveBlockEntity_AccessorImp(BlockEntityType<?> tileEntityTypeIn, BlockPos pos, BlockState state) {
-        super(tileEntityTypeIn, pos, state);
+public abstract class NetherStoveBlockEntity_AccessorImp extends AbstractStoveBlockEntity implements INetherStoveBlockEntity {
+
+    protected NetherStoveBlockEntity_AccessorImp(BlockEntityType<?> blockEntityType, BlockPos blockPos, BlockState blockState, RecipeType<? extends AbstractCookingRecipe> recipeType) {
+        super(blockEntityType, blockPos, blockState, recipeType);
     }
 
     public NetherStoveBlockEntity sdtfc$getBlockEntity(){
@@ -22,7 +27,7 @@ public abstract class NetherStoveBlockEntity_AccessorImp extends SyncedBlockEnti
     }
     ;
     public ItemStackHandler sdtfc$getInventory(){
-        return ((NetherStoveBlockEntity)(Object)this).getInventory();
+        return getItems();
     };
 
     public int[] sdtfc$getCookingTimes(){
@@ -34,13 +39,6 @@ public abstract class NetherStoveBlockEntity_AccessorImp extends SyncedBlockEnti
     public int[] sdtfc$getCookingTimesTotal(){
         if(this instanceof NetherStoveBlockEntity_Accessor acc){
             return acc.getCookingTimesTotal();
-        }
-        return null;
-    };
-    @Unique
-    public ResourceLocation[] sdtfc$getLastRecipeIDs(){
-        if(this instanceof NetherStoveBlockEntity_Accessor acc){
-            return acc.getLastRecipeIDs();
         }
         return null;
     };

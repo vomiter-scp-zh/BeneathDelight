@@ -1,18 +1,14 @@
 package com.vomiter.beneathdelight.mixin.stove;
 
-import com.soytutta.mynethersdelight.common.block.entity.NetherStoveBlockEntity;
-import net.minecraft.resources.ResourceLocation;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.gen.Accessor;
+import vectorwing.farmersdelight.common.block.entity.AbstractStoveBlockEntity;
 
-@Mixin(value = NetherStoveBlockEntity.class, remap = false)
+@Mixin(value = AbstractStoveBlockEntity.class, remap = false)
 public interface NetherStoveBlockEntity_Accessor {
-    @Accessor("cookingTimes")
+    @Accessor("cookingProgress")
     int[] getCookingTimes();
 
-    @Accessor("cookingTimesTotal")
+    @Accessor("cookingTime")
     int[] getCookingTimesTotal();
-
-    @Accessor("lastRecipeIDs")
-    ResourceLocation[] getLastRecipeIDs();
 }

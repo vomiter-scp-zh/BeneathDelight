@@ -39,6 +39,7 @@ public class NetherStoveBlock_FuelAndHeat {
     }
      */
 
+    /*
     @Inject(method = "use", at = @At(value = "INVOKE", target = "Ljava/util/Optional;isPresent()Z"), cancellable = true, remap = true)
     private void addFood(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit, CallbackInfoReturnable<InteractionResult> cir){
         ItemStack heldItem = player.getItemInHand(hand);
@@ -47,4 +48,5 @@ public class NetherStoveBlock_FuelAndHeat {
         assert iStove != null;
         if(iStove.sdtfc$addItem(heldItem, stove.getNextEmptySlot(), iStove, player)) cir.setReturnValue(InteractionResult.sidedSuccess(level.isClientSide));
     }
+    */
 }

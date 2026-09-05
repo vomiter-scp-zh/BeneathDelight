@@ -34,7 +34,7 @@ public class ResurgentFarmlandMixin extends Block implements HoeOverlayBlock, En
     }
 
     @Inject(method = "performBonemealIfPossible", at = @At("HEAD"), cancellable = true)
-    private void preventBoneMeal(Block block, BlockPos position, BlockState state, ServerLevel level, int distance, CallbackInfo ci){
+    private void preventBoneMeal(BlockPos position, ServerLevel level, int distance, Direction direction, CallbackInfo ci){
         var blockentity = level.getBlockEntity(position);
         if(blockentity instanceof CropBlockEntity) ci.cancel();
         if(blockentity instanceof TickCounterBlockEntity) ci.cancel();

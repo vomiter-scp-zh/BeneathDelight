@@ -24,6 +24,8 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import vectorwing.farmersdelight.common.Configuration;
 import vectorwing.farmersdelight.common.utility.MathUtils;
 
+import java.util.function.Predicate;
+
 @Mixin(value = ResurgentSoilBlock.class, remap = false)
 public class ResurgentSoilMixin {
 
@@ -31,18 +33,18 @@ public class ResurgentSoilMixin {
             method = "placeBlock",
             at = @At("TAIL")
     )
-    private void resetTimerWhenPropagate(Block block, ServerLevel level, BlockPos pos, CallbackInfo ci){
+    private static void resetTimerWhenPropagate(BlockState state, ServerLevel level, BlockPos pos, CallbackInfo ci){
         if(level.getBlockEntity(pos) instanceof TickCounterBlockEntity tickCounter){
             tickCounter.resetCounter();
         }
     }
 
     @Inject(
-            method = "performBonemealIfPossible",
+            method = "boostConnectedPlant",
             at = @At(value = "INVOKE", target = "Lnet/minecraft/world/level/block/BonemealableBlock;performBonemeal(Lnet/minecraft/server/level/ServerLevel;Lnet/minecraft/util/RandomSource;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/block/state/BlockState;)V", remap = true),
             cancellable = true
     )
-    private void tfc_tree_growth_boost(Block block, BlockPos pos, BlockState state, ServerLevel level, int distance, CallbackInfo ci){
+    private static void tfc_tree_growth_boost(BlockPos pos, ServerLevel level, int distance, Direction direction, int maxDistance, Predicate<BlockState> additionalContinuation, CallbackInfo ci){
         if(level.getBlockEntity(pos) instanceof TickCounterBlockEntity tickCounter){
             tickCounter.reduceCounter(-1L * SDConfig.COMMON.richSoilGrowthBoostTick.get());
             level.levelEvent(2005, pos, 0);

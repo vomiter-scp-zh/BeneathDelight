@@ -38,14 +38,6 @@ public abstract class MagmaCakeBlock_SliceMixin {
 
     @Shadow public abstract ItemStack getPieSliceItem();
 
-    @WrapOperation(method = "use", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/item/ItemStack;is(Lnet/minecraft/tags/TagKey;)Z", remap = true), remap = true)
-    private boolean sdtfc$useTFCKnife(ItemStack itemStack, TagKey<Item> tagKey, Operation<Boolean> original){
-        if(tagKey.location().equals(Helpers.id(FarmersDelight.MODID, "tools/knives"))){
-            return original.call(itemStack, TFCTags.Items.KNIVES);
-        }
-        return original.call(itemStack, tagKey);
-    }
-
     @Inject(method = "cutSlice", at = @At(value = "INVOKE", target = "Lvectorwing/farmersdelight/common/utility/ItemUtils;spawnItemEntity(Lnet/minecraft/world/level/Level;Lnet/minecraft/world/item/ItemStack;DDDDDD)V"), cancellable = true)
     private void sdtfc$cutDecaySlice(Level level, BlockPos pos, BlockState state, Player player, CallbackInfoReturnable<InteractionResult> cir){
         BlockEntity blockEntity = level.getBlockEntity(pos);
