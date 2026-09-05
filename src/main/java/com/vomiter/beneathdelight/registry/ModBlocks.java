@@ -1,6 +1,6 @@
 package com.vomiter.beneathdelight.registry;
 
-import com.vomiter.survivorsdelight.common.container.SDCabinetBlock;
+import com.vomiter.survivorsdelight.common.cabinet.SDCabinetBlock;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;

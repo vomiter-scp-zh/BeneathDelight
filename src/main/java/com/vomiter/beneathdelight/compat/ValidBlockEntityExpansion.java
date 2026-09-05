@@ -4,7 +4,7 @@ import com.eerussianguy.beneath.common.blockentities.BeneathBlockEntities;
 import com.eerussianguy.beneath.common.blockentities.SoulFarmlandBlockEntity;
 import com.soytutta.mynethersdelight.common.registry.MNDBlocks;
 import com.vomiter.beneathdelight.registry.ModBlocks;
-import com.vomiter.survivorsdelight.common.container.SDCabinetBlockEntity;
+import com.vomiter.survivorsdelight.common.cabinet.SDCabinetBlockEntity;
 import com.vomiter.survivorsdelight.common.food.block.DecayingFeastBlockEntity;
 import com.vomiter.survivorsdelight.mixin.BlockEntityTypeAccessor;
 import com.vomiter.survivorsdelight.registry.SDBlockEntityTypes;

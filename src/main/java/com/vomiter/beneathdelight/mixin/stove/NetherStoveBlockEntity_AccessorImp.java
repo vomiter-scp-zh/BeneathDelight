@@ -1,7 +1,8 @@
 package com.vomiter.beneathdelight.mixin.stove;
 
 import com.soytutta.mynethersdelight.common.block.entity.NetherStoveBlockEntity;
-import com.vomiter.beneathdelight.adapter.INetherStoveBlockEntity;
+import com.vomiter.survivorsdelight.adapter.stove.IStoveBlockEntity;
+import net.dries007.tfc.common.recipes.HeatingRecipe;
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.crafting.AbstractCookingRecipe;
@@ -16,7 +17,7 @@ import vectorwing.farmersdelight.common.block.entity.AbstractStoveBlockEntity;
 import vectorwing.farmersdelight.common.block.entity.SyncedBlockEntity;
 
 @Mixin(value = NetherStoveBlockEntity.class, remap = false)
-public abstract class NetherStoveBlockEntity_AccessorImp extends AbstractStoveBlockEntity implements INetherStoveBlockEntity {
+public abstract class NetherStoveBlockEntity_AccessorImp extends AbstractStoveBlockEntity implements IStoveBlockEntity {
 
     protected NetherStoveBlockEntity_AccessorImp(BlockEntityType<?> blockEntityType, BlockPos blockPos, BlockState blockState, RecipeType<? extends AbstractCookingRecipe> recipeType) {
         super(blockEntityType, blockPos, blockState, recipeType);
@@ -30,16 +31,16 @@ public abstract class NetherStoveBlockEntity_AccessorImp extends AbstractStoveBl
         return getItems();
     };
 
-    public int[] sdtfc$getCookingTimes(){
-        if(this instanceof NetherStoveBlockEntity_Accessor acc){
-            return acc.getCookingTimes();
-        }
-        return null;
-    };
-    public int[] sdtfc$getCookingTimesTotal(){
-        if(this instanceof NetherStoveBlockEntity_Accessor acc){
-            return acc.getCookingTimesTotal();
-        }
-        return null;
-    };
+    @Unique private final HeatingRecipe[] cachedHeatingRecipes = new HeatingRecipe[6];
+
+    @Override
+    public HeatingRecipe[] sdtfc$getCachedRecipes() {
+        return cachedHeatingRecipes;
+    }
+
+    @Override
+    public void sdtfc$reduceLeftBurnTick(int i){
+
+    }
+
 }

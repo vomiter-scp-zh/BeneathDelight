@@ -3,7 +3,7 @@ package com.vomiter.beneathdelight.mixin.food.block;
 import com.soytutta.mynethersdelight.common.block.MagmaCakeBlock;
 import com.vomiter.beneathdelight.common.food.block.DecayingMagmaCakeBlockEntity;
 import com.vomiter.beneathdelight.registry.ModBlockEntityTypes;
-import com.vomiter.survivorsdelight.adapter.food_block.ISDDecayingBlock;
+import com.vomiter.survivorsdelight.common.food.block.ISDDecayingBlock;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
