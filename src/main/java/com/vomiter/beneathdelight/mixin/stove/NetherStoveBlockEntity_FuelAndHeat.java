@@ -2,7 +2,7 @@ package com.vomiter.beneathdelight.mixin.stove;
 
 import com.soytutta.mynethersdelight.common.block.NetherStoveBlock;
 import com.soytutta.mynethersdelight.common.block.entity.NetherStoveBlockEntity;
-import com.vomiter.survivorsdelight.HeatSourceBlockEntity;
+import com.vomiter.survivorsdelight.adapter.HeatSourceBlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import org.spongepowered.asm.mixin.Mixin;
 
